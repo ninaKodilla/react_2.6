@@ -1,14 +1,6 @@
 var Counter = React.createClass ({
     componentWillMount: function() {
-        console.log();
-    },
-
-    componentDidMount: function() {
-        console.log();
-    },
-
-    componentWillUpdate: function() {
-        console.log();
+        console.log('I check the initial value of the counter, before render');
     },
 
     getInitialState: function() {
@@ -29,13 +21,25 @@ var Counter = React.createClass ({
         })
     },
 
+    componentDidMount: function() {
+        console.log('Checking counters values after add to DOM');
+    },
+
     render: function() {
         return React.createElement('div', {},
-            React.createElement('p', {}, 'Licznik ' + this.state.counter),
+            React.createElement('p', {}, 'Counter ' + this.state.counter),
             React.createElement('button', {onClick: this.increment},'Add'),
             React.createElement('button', {onClick: this.decrement},'Remove')
 		);
-    }
+    },
+
+    componentWillUpdate: function() {
+        console.log('Checking counters values after changes in prop or state');
+    },
+
+    componentDidUpdate: function() {
+        console.log('Actualization component');
+    },
 });
 
 var Counters = React.createClass ({
