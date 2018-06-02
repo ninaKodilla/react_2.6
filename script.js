@@ -21,6 +21,10 @@ var Counter = React.createClass ({
         })
     },
 
+    componentWillReceiveProps: function() {
+        console.log('Actualization counter state after click')
+    },
+
     componentDidMount: function() {
         console.log('Checking counters values after add to DOM');
     },
@@ -40,6 +44,9 @@ var Counter = React.createClass ({
     componentDidUpdate: function() {
         console.log('Actualization component');
     },
+    componentWillUnmount: function() {
+        console.log('Stop watching counters')
+    }
 });
 
 var Counters = React.createClass ({
